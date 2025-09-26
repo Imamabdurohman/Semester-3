@@ -1,3 +1,0 @@
-gashas
-sjd
-ajisa
