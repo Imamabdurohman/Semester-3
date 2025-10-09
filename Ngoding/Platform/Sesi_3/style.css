@@ -1,0 +1,127 @@
+/* Reset CSS dasar dan pengaturan font utama */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #b8c6db 100%);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Kontainer utama berbentuk kartu (card) */
+.card-container {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+    width: 100%;
+    max-width: 800px;
+    padding: 35px;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+}
+
+/* Header dengan judul */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+header p {
+    margin: 5px 0 0;
+    color: #888;
+    font-size: 15px;
+}
+
+/* Pengaturan tabel */
+.student-table {
+    width: 100%;
+    border-collapse: collapse; /* Ini penting agar border menjadi satu garis */
+}
+
+/* ================================================ */
+/* ============= PERUBAHAN UTAMA DI SINI ============= */
+/* ================================================ */
+
+/* Mengatur SEMUA sel (header dan data) agar memiliki border */
+.student-table th, .student-table td {
+    border: 1px solid #dfe4ea; /* BARU: Menambahkan border ke semua sisi sel */
+    padding: 14px 15px;
+    text-align: left;
+}
+
+/* Pengaturan sel data (TD) */
+.student-table td {
+    /* DIHAPUS: Properti border-bottom dipindahkan ke aturan di atas */
+}
+
+/* Header tabel (TH) */
+.student-table th {
+    color: white;
+    padding: 16px 15px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Memberi warna berbeda untuk setiap header kolom (tetap sama) */
+.student-table th:nth-child(1) { background-color: #1abc9c; } /* NO - Teal */
+.student-table th:nth-child(2) { background-color: #3498db; } /* NAMA - Blue */
+.student-table th:nth-child(3) { background-color: #9b59b6; } /* TUGAS - Purple */
+.student-table th:nth-child(4) { background-color: #e67e22; } /* UTS - Orange */
+.student-table th:nth-child(5) { background-color: #e74c3c; } /* UAS - Red */
+.student-table th:nth-child(6) { background-color: #2c3e50; } /* NILAI AKHIR - Dark Blue */
+
+/* Efek hover pada baris data */
+.student-table tbody tr:hover {
+    background-color: #f5faff; /* Sedikit diubah agar lebih terlihat */
+}
+
+/* DIHAPUS: Aturan border-bottom untuk baris terakhir tidak diperlukan lagi */
+
+/* Pusatkan teks untuk kolom angka */
+.student-table th:not(:nth-child(2)),
+.student-table td:not(:nth-child(2)) {
+    text-align: center;
+}
+
+/* ---- Kelas untuk pewarnaan nilai akhir (tetap sama) ---- */
+.grade-pass, .grade-average, .grade-fail {
+    font-weight: 700;
+    border-radius: 6px;
+    padding: 8px 12px;
+}
+.grade-pass {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+.grade-average {
+    background-color: #fff3e0;
+    color: #e65100;
+}
+.grade-fail {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 13px;
+    color: #aaa;
+}
