@@ -1,0 +1,10 @@
+{
+    "java.project.sourcePaths": [
+        "src/doc.app",
+        "src/doc.core",
+        "src/doc.txt"
+    ],
+    "java.project.outputPath": "out",
+    "java.import.gradle.enabled": false,
+    "java.import.maven.enabled": false
+}

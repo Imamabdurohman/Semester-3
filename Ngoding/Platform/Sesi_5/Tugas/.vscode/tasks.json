@@ -1,0 +1,18 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile Java Project",
+            "type": "shell",
+            "command": "javac --module-source-path src -d out src\\doc.core\\module-info.java src\\doc.core\\com\\example\\doc\\core\\*.java src\\doc.txt\\module-info.java src\\doc.txt\\com\\example\\doc\\txt\\*.java src\\doc.app\\module-info.java src\\doc.app\\com\\example\\doc\\app\\*.java",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "silent",
+                "clear": true
+            }
+        }
+    ]
+}

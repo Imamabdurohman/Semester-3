@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "command": "npm start",
+            "name": "Run npm start",
+            "request": "launch",
+            "type": "node-terminal"
+        },
+        {
+            "type": "java",
+            "name": "Compile and Run App",
+            "request": "launch",
+            "mainClass": "com.example.doc.app.MainApp",
+            "cwd": "${workspaceFolder}",
+            "preLaunchTask": "Compile Java Project",
+            "vmArgs": [
+                "--module-path",
+                "out",
+                "--add-modules",
+                "doc.app"
+            ]
+        }
+    ]
+}
