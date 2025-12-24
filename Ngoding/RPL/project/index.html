@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sistem Informasi Peminjaman Buku</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="authSection"  class="auth-wrapper">
+        <div class="auth-container">
+            <h2 id="authTitle">Login Perpustakaan</h2>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <input type="text" id="fullname" placeholder="Nama Lengkap" class="hidden">
+            
+            <button class="btn-primary" onclick="handleAuth()" id="authBtn">Login</button>
+            
+            <p class="toggle-text">
+                <span id="toggleText">Belum punya akun?</span> 
+                <a href="#" onclick="toggleAuthMode()">Klik disini</a>
+            </p>
+            <p class="info-text">(Admin Default: user=admin, pass=admin)</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

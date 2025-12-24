@@ -1,0 +1,237 @@
+/* --- 1. GLOBAL VARIABLES & RESET --- */
+:root {
+    --primary: #2c3e50;
+    --accent: #3498db;
+    --bg-light: #f4f7f6;
+    --danger: #e74c3c;
+    --success: #27ae60;
+    --white: #ffffff;
+    --text-dark: #333;
+}
+
+* { 
+    box-sizing: border-box; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+html, body { 
+    margin: 0; 
+    padding: 0;
+    height: 100%; /* Penting agar background penuh */
+    background-color: var(--bg-light); 
+    color: var(--text-dark); 
+}
+
+/* --- 2. LOGIN / REGISTER PAGE --- */
+.auth-wrapper {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; 
+    padding: 20px;
+    background: linear-gradient(135deg, var(--primary), var(--accent)); /* Background lebih menarik */
+}
+
+.auth-container {
+    width: 100%; 
+    max-width: 400px;
+    background: var(--white); 
+    padding: 30px; 
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
+    text-align: center;
+}
+
+.toggle-text { margin-top: 15px; font-size: 14px; }
+.toggle-text a { color: var(--accent); text-decoration: none; font-weight: bold; }
+.info-text { font-size: 12px; color: #888; margin-top: 10px; }
+
+/* --- 3. DASHBOARD LAYOUT (FIXED SIDEBAR) --- */
+.dashboard { 
+    display: flex;          /* Flexbox untuk Sidebar + Content */
+    height: 100vh;          /* Tinggi layar penuh */
+    width: 100%;
+    overflow: hidden;       /* Mencegah scroll ganda */
+}
+
+/* Sidebar Area */
+.sidebar {
+    width: 250px; 
+    background: var(--primary); 
+    color: var(--white);
+    display: flex; 
+    flex-direction: column; 
+    flex-shrink: 0;         /* Agar sidebar tidak mengecil */
+    transition: all 0.3s ease;
+}
+
+.sidebar-member { background: #2980b9; }
+
+.sidebar-header {
+    text-align: center; 
+    padding: 20px; 
+    font-weight: bold; 
+    font-size: 18px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    background: rgba(0,0,0,0.1);
+}
+
+/* Menu Items */
+.menu-list { 
+    flex: 1; 
+    display: flex; 
+    flex-direction: column; 
+    overflow-y: auto; /* Jika menu panjang, bisa discroll */
+}
+
+.menu-item { 
+    padding: 15px 20px; 
+    cursor: pointer; 
+    transition: 0.2s; 
+    border-left: 4px solid transparent; 
+    font-size: 15px;
+}
+
+.menu-item:hover { background: rgba(255,255,255,0.1); }
+.menu-item.active { background: rgba(0,0,0,0.2); border-left-color: var(--accent); }
+
+.menu-logout { 
+    margin-top: auto; /* Dorong ke bawah */
+    background: var(--danger); 
+    border-left: none; 
+    text-align: center;
+}
+.menu-logout:hover { background: #c0392b; }
+
+/* Main Content Area */
+.main-content {
+    flex: 1;                /* Mengambil sisa ruang */
+    padding: 30px; 
+    overflow-y: auto;       /* Scroll hanya di area konten */
+    background: var(--bg-light);
+}
+
+/* --- 4. COMPONENTS --- */
+.hidden { display: none !important; }
+
+.card { 
+    background: var(--white); 
+    padding: 25px; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05); 
+    margin-bottom: 25px; 
+}
+
+h2 { margin-top: 0; margin-bottom: 20px; color: var(--primary); }
+
+/* Forms */
+.form-row { display: flex; gap: 15px; margin-bottom: 15px; }
+.form-row > * { flex: 1; }
+
+input, select {
+    width: 100%; padding: 12px; margin-bottom: 15px;
+    border: 1px solid #ddd; border-radius: 6px; font-size: 14px;
+    outline: none;
+}
+input:focus, select:focus { border-color: var(--accent); }
+
+/* Buttons */
+button { 
+    padding: 12px 20px; 
+    border: none; 
+    cursor: pointer; 
+    border-radius: 6px; 
+    font-weight: 600; 
+    font-size: 14px; 
+    transition: 0.2s; 
+}
+.btn-primary { background: var(--accent); color: white; width: 100%; }
+.btn-success { background: var(--success); color: white; }
+.btn-small { padding: 6px 12px; font-size: 12px; border-radius: 4px; }
+button:hover { opacity: 0.9; transform: translateY(-1px); }
+
+/* Tables */
+.table-responsive { 
+    overflow-x: auto; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    background: white;
+}
+table { width: 100%; border-collapse: collapse; white-space: nowrap; }
+th, td { padding: 15px; text-align: left; border-bottom: 1px solid #eee; }
+th { background-color: var(--accent); color: white; font-weight: 600; }
+tr:last-child td { border-bottom: none; }
+tr:hover { background-color: #f8f9fa; }
+
+/* Status Badges */
+.status-badge { padding: 5px 10px; border-radius: 20px; font-size: 12px; color: white; font-weight: bold; }
+.bg-blue { background: var(--accent); }
+.bg-green { background: var(--success); }
+
+/* --- 5. RESPONSIVE (MOBILE) --- */
+@media screen and (max-width: 768px) {
+    .dashboard { 
+        flex-direction: column; /* Sidebar di atas, Konten di bawah */
+        height: 100vh; /* Tetap full height */
+    }
+    
+    .sidebar {
+        width: 100%; 
+        height: auto;
+        flex-shrink: 0;
+    }
+    
+    .sidebar-header { padding: 15px; font-size: 16px; }
+
+    /* Horizontal Scrollable Menu */
+    .menu-list {
+        flex-direction: row; 
+        overflow-x: auto; 
+        padding: 0;
+        background: rgba(0,0,0,0.2);
+    }
+    
+    .menu-item {
+        padding: 12px 15px; 
+        font-size: 14px; 
+        white-space: nowrap;
+        border-left: none; 
+        border-bottom: 3px solid transparent;
+        flex: none; /* Agar item tidak menyempit */
+    }
+    
+    .menu-item.active {
+        background: rgba(255,255,255,0.15);
+        border-left: none; 
+        border-bottom-color: var(--white);
+    }
+    
+    .menu-logout { 
+        margin-top: 0; 
+        width: auto;
+        padding: 12px 20px;
+    }
+
+    /* Content Adjustment */
+    .main-content { 
+        padding: 15px; 
+        height: auto; /* Biarkan konten mengisi sisa ruang */
+    }
+    
+    .form-row { flex-direction: column; gap: 0; }
+    
+    /* Tombol Edit/Hapus agar tidak terlalu lebar di tabel HP */
+    .btn-small { padding: 5px 8px; }
+}
+
+/* Tambahkan di style.css */
+.btn-danger {
+    background-color: var(--danger); /* Merah */
+    color: white;
+}
+.btn-danger:hover {
+    background-color: #c0392b;
+}
+.gap-small {
+    margin-left: 5px; /* Jarak antar tombol edit dan hapus */
+}
